@@ -3,9 +3,9 @@ import { useParams, useNavigate } from "react-router-dom";
 
 export default function Record() {
   const [form, setForm] = useState({
-    name: "",
-    position: "",
-    level: "",
+    course: "",
+    unit: "",
+    section: "",
   });
   const [isNew, setIsNew] = useState(true);
   const params = useParams();
@@ -75,7 +75,7 @@ export default function Record() {
     } catch (error) {
       console.error('A problem occurred adding or updating a record: ', error);
     } finally {
-      setForm({ name: "", position: "", level: "" });
+      setForm({ course: "", unit: "", section: "" });
       navigate("/");
     }
   }
@@ -136,13 +136,13 @@ export default function Record() {
                     id="position"
                     className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-slate-900 placeholder:text-slate-400 focus:ring-0 sm:text-sm sm:leading-6"
                     placeholder="Developer Advocate"
-                    value={form.position}
+                    value={form.course}
                     onChange={(e) => updateForm({ position: e.target.value })}
                   />
                 </div>
               </div>
             </div>
-            <div>
+            {/* <div>
               <fieldset className="mt-4">
                 <legend className="sr-only">Position Options</legend>
                 <div className="space-y-4 sm:flex sm:items-center sm:space-x-10 sm:space-y-0">
@@ -195,7 +195,7 @@ export default function Record() {
                   </div>
                 </div>
               </fieldset>
-            </div>
+            </div> */}
           </div>
         </div>
         <input
